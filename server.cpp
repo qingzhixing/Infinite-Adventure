@@ -1,0 +1,5 @@
+// Server main
+
+int main() {
+
+}
