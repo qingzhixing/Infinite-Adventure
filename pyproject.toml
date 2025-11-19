@@ -1,15 +1,15 @@
 [project]
 name = "Infinite-Adventure"
 version = "0.1.0"
-description = "Default template for PDM package"
-authors = [
-    {name = "qingzhixing", email = "qzsqqmail@qq.com"},
-]
-dependencies = []
+description = "Infinite Adventure. Welcome."
+authors = [{ name = "qingzhixing", email = "qzsqqmail@qq.com" }]
+dependencies = ["pyqt6>=6.10.0"]
 requires-python = "==3.13.*"
 readme = "README.md"
-license = {text = "MIT"}
-
+license = { text = "MIT" }
 
 [tool.pdm]
 distribution = false
+
+[tool.pdm.scripts]
+start = "pdm run python src/main.py"
