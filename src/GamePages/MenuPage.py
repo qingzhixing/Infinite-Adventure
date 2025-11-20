@@ -1,6 +1,9 @@
 import ConsoleUtils
+import GameInfo
 import GamePage
 import PageSwitcher
+import PlayerInfo
+from Global import player
 
 
 class MenuPage(GamePage.BaseGamePage):
@@ -13,9 +16,10 @@ class MenuPage(GamePage.BaseGamePage):
         }
         ConsoleUtils.ClearScreen()
         print("[初始之地: Starting Area]")
+        print("这里似乎是你出现在这个世界的位置...")
         print("=" * 60)
         for id, element in enumerate(selections.keys(), start=1):
-            print(f"{id}. {element}", end=" " if id % 4 != 0 else "\n")
+            print(f"{id}. {element}", end="  " if id % 4 != 0 else "\n")
         print("=" * 60)
 
         input_check = False
@@ -39,12 +43,13 @@ class MenuPage(GamePage.BaseGamePage):
 
     @staticmethod
     def StatusSelection():
-        print("查看状态功能尚未实现。")
+        ConsoleUtils.ClearScreen()
+        PlayerInfo.PrintPlayerInfo(player)
         ConsoleUtils.Pause()
 
     @staticmethod
     def GameDetailSelection():
-        print("游戏详情功能尚未实现。")
+        GameInfo.PrintGameInfo()
         ConsoleUtils.Pause()
 
     @staticmethod

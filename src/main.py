@@ -1,10 +1,9 @@
 import ConsoleUtils
 from DataReadWriter import LoadPlayer, SavePlayer
 from GamePages.MenuPage import MenuPage
+from Global import player
 import PageSwitcher
 import PlayerInfo
-
-player = PlayerInfo.Player()
 
 
 def InputPlayerInfo():
