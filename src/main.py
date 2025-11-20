@@ -1,5 +1,7 @@
 import ConsoleUtils
 from DataReadWriter import LoadPlayer, SavePlayer
+from GamePages.MenuPage import MenuPage
+import PageSwitcher
 import PlayerInfo
 
 player = PlayerInfo.Player()
@@ -63,14 +65,26 @@ def CreateAccount():
     else:
         player = read_player
         print("已加载存档，欢迎回来!")
+
     PlayerInfo.PrintPlayerInfo(player)
+    ConsoleUtils.Pause()
+
+
+def GameLoop():
+    while not PageSwitcher.IsGameOver():
+        PageSwitcher.NextLoop()
+
+
+def Initialize():
+    ConsoleUtils.ClearScreen()
+    print("欢迎来到 [无尽的冒险: Infinite Adventure]")
+    CreateAccount()
+    PageSwitcher.SwitchTo(MenuPage())
 
 
 def main():
-    ConsoleUtils.ClearScreen()
-
-    print("欢迎来到 [无尽的冒险: Infinite Adventure]")
-    CreateAccount()
+    Initialize()
+    GameLoop()
 
 
 if __name__ == "__main__":
