@@ -16,11 +16,10 @@ start = "python src/main.py"
 build-dev = "pyinstaller --distpath ./dist/dev --onefile --console src/main.py --name Infinite-Adventure-Dev"
 build-prod = "pyinstaller --distpath ./dist/prod --onefile --windowed src/main.py --name Infinite-Adventure"
 
-# 使用Windows命令清理
-clean = "cmd /c 'rmdir /s /q build dist && del *.spec 2>nul || echo 清理完成'"
+clean = "cmd /c 'rmdir /s /q build dist 2>nul && del *.spec 2>nul || echo 清理完成'"
 
 # 完整构建流程
-release = "cmd /c 'pdm run clean && pdm run build-prod && pdm run build-dev && echo Successfully built all distributions.'"
+release = "cmd /c 'pdm run build-prod && pdm run build-dev && echo Successfully built all distributions.'"
 
 [dependency-groups]
 dev = ["pyinstaller>=6.16.0"]
