@@ -1,9 +1,10 @@
-from PyQt6.QtWidgets import QApplication, QWidget
+from PyQt6.QtWidgets import QApplication, QMainWindow
 import sys
+
 
 def main():
     app = QApplication(sys.argv)
-    window = QWidget()
+    window = QMainWindow()
     window.setWindowTitle("无尽的冒险: Infinite-Adventure")
     window.setGeometry(100, 100, 800, 600)
     window.show()
