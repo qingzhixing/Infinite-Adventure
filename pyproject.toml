@@ -13,7 +13,7 @@ distribution = false
 
 [tool.pdm.scripts]
 start = "python src/main.py"
-build = "pyinstaller --distpath ./dist/dev --onefile --console src/main.py --name Infinite-Adventure"
+release = "pyinstaller --distpath ./dist/dev --onefile --console src/main.py --name Infinite-Adventure"
 clean = "cmd /c 'rmdir /s /q build dist 2>nul && del *.spec 2>nul || echo 清理完成'"
 
 [dependency-groups]
