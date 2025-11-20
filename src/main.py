@@ -1,14 +1,8 @@
 import ConsoleUtils
-from DataReadWriter import LoadPlayer
+from DataReadWriter import LoadPlayer, SavePlayer
 import PlayerInfo
 
 player = PlayerInfo.Player()
-
-
-def PrintWelcome():
-    ConsoleUtils.ClearScreen()
-
-    print("欢迎来到 [无尽的冒险: Infinite Adventure]")
 
 
 def InputPlayerInfo():
@@ -55,6 +49,8 @@ def SelectJob():
 
 
 def CreateAccount():
+    global player
+
     read_player = LoadPlayer()
     if read_player is None:
         InputPlayerInfo()
@@ -63,6 +59,7 @@ def CreateAccount():
         SelectJob()
         ConsoleUtils.Pause()
         ConsoleUtils.ClearScreen()
+        SavePlayer(player)
     else:
         player = read_player
         print("已加载存档，欢迎回来!")
@@ -72,7 +69,7 @@ def CreateAccount():
 def main():
     ConsoleUtils.ClearScreen()
 
-    PrintWelcome()
+    print("欢迎来到 [无尽的冒险: Infinite Adventure]")
     CreateAccount()
 
 

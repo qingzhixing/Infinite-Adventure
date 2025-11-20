@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:b8c2ec215fb35c0d849ae1c62a9764bd1c84b23fd3397025664c9f6891496294"
+content_hash = "sha256:15bd530b7afd13807b2b65c264e9c394c43b2c1b21cc5c04e5c8b9929caa315d"
 
 [[metadata.targets]]
 requires_python = "==3.13.*"
@@ -125,4 +125,14 @@ groups = ["dev"]
 files = [
     {file = "setuptools-80.9.0-py3-none-any.whl", hash = "sha256:062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"},
     {file = "setuptools-80.9.0.tar.gz", hash = "sha256:f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"},
+]
+
+[[package]]
+name = "windows-curses"
+version = "2.4.1"
+summary = "Support for the standard curses module on Windows"
+groups = ["default"]
+files = [
+    {file = "windows_curses-2.4.1-cp313-cp313-win32.whl", hash = "sha256:05d1ca01e5199a435ccb6c8c2978df4a169cdff1ec99ab15f11ded9de8e5be26"},
+    {file = "windows_curses-2.4.1-cp313-cp313-win_amd64.whl", hash = "sha256:8cf653f8928af19c103ae11cfed38124f418dcdd92643c4cd17239c0cec2f9da"},
 ]

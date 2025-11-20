@@ -1,7 +1,7 @@
-import yaml
+import json
 import PlayerInfo
 
-SAVE_PATH = "game_save.yaml"
+SAVE_PATH = "game_save.json"
 
 
 def SavePlayer(player: PlayerInfo.Player):
@@ -18,13 +18,13 @@ def SavePlayer(player: PlayerInfo.Player):
                 "en_name": player.job.en_name,
             },
         }
-        yaml.dump(data, file, allow_unicode=True)
+        json.dump(data, file, ensure_ascii=False, indent=4)
 
 
 def LoadPlayer() -> PlayerInfo.Player | None:
     try:
         with open(SAVE_PATH, "r", encoding="utf-8") as file:
-            data = yaml.safe_load(file)
+            data = json.load(file)
             player = PlayerInfo.Player()
             player.name = data["name"]
             player.level = data["level"]
