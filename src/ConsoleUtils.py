@@ -7,6 +7,6 @@ def ClearScreen():
 
 def Pause():
     """Pauses the console until the user presses Enter."""
-    input("按下回车键继续...")
+    input("Press ENTER to continue...")
     # 删除上一行
     print("\033[F\033[K", end="")  # ANSI escape codes to move cursor up and clear line
