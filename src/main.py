@@ -1,4 +1,5 @@
 import ConsoleUtils
+from DataReadWriter import LoadPlayer
 import PlayerInfo
 
 player = PlayerInfo.Player()
@@ -54,12 +55,17 @@ def SelectJob():
 
 
 def CreateAccount():
-    InputPlayerInfo()
-    ConsoleUtils.Pause()
-    ConsoleUtils.ClearScreen()
-    SelectJob()
-    ConsoleUtils.Pause()
-    ConsoleUtils.ClearScreen()
+    read_player = LoadPlayer()
+    if read_player is None:
+        InputPlayerInfo()
+        ConsoleUtils.Pause()
+        ConsoleUtils.ClearScreen()
+        SelectJob()
+        ConsoleUtils.Pause()
+        ConsoleUtils.ClearScreen()
+    else:
+        player = read_player
+        print("已加载存档，欢迎回来!")
     PlayerInfo.PrintPlayerInfo(player)
 
 
