@@ -1,20 +1,20 @@
 import console_utils
 import game_info
-import base_game_page
-from map_page import MapPage
+from game_pages import base_game_page
+from game_pages.map_page import MapPage
 import page_switcher
 import player_info
 from global_data import player
 
 
-class MenuPage(base_game_page.BaseGamePage):
+class StartingAreaPage(base_game_page.BaseGamePage):
     @staticmethod
     def NextLoop():
         selections = {
-            "打开地图": MenuPage.OpenMapSelection,
-            "查看状态": MenuPage.StatusSelection,
-            "游戏信息": MenuPage.GameDetailSelection,
-            "退出游戏": MenuPage.ExitGameSelection,
+            "打开地图": StartingAreaPage.OpenMapSelection,
+            "查看状态": StartingAreaPage.StatusSelection,
+            "游戏信息": StartingAreaPage.GameDetailSelection,
+            "退出游戏": StartingAreaPage.ExitGameSelection,
         }
         console_utils.ClearScreen()
         print("[初始之地: Starting Area]")

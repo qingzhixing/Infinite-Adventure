@@ -1,6 +1,6 @@
 import console_utils
 from data_read_writer import LoadPlayer, SavePlayer
-from game_pages.starting_area_page import MenuPage
+from game_pages.starting_area_page import StartingAreaPage
 from global_data import player
 import page_switcher
 import player_info
@@ -78,7 +78,7 @@ def Initialize():
     console_utils.ClearScreen()
     print("欢迎来到 [无尽的冒险: Infinite Adventure]")
     CreateAccount()
-    page_switcher.SwitchTo(MenuPage.NextLoop)
+    page_switcher.SwitchTo(StartingAreaPage.NextLoop)
 
 
 def main():
