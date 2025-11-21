@@ -1,10 +1,10 @@
 import json
-import player_info
+import PlayerInfo
 
 SAVE_PATH = "game_save.json"
 
 
-def SavePlayer(player: player_info.Player):
+def SavePlayer(player: PlayerInfo.Player):
     with open(SAVE_PATH, "w", encoding="utf-8") as file:
         data = {
             "name": player.name,
@@ -21,11 +21,11 @@ def SavePlayer(player: player_info.Player):
         json.dump(data, file, ensure_ascii=False, indent=4)
 
 
-def LoadPlayer() -> player_info.Player | None:
+def LoadPlayer() -> PlayerInfo.Player | None:
     try:
         with open(SAVE_PATH, "r", encoding="utf-8") as file:
             data = json.load(file)
-            player = player_info.Player()
+            player = PlayerInfo.Player()
             player.name = data["name"]
             player.level = data["level"]
             player.health = data["health"]
@@ -34,7 +34,7 @@ def LoadPlayer() -> player_info.Player | None:
             player.experience = data["experience"]
 
             job_name = data["job"]["name"]
-            for job in player_info.JobList:
+            for job in PlayerInfo.JobList:
                 if job.name == job_name:
                     player.set_job(job)
                     break

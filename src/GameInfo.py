@@ -1,4 +1,4 @@
-import console_utils
+import ConsoleUtils
 
 GameName = "无尽的冒险 (Infinite Adventure)"
 GameVersion = "v0.1.0"
@@ -7,7 +7,7 @@ Author = "@qingzhixing"
 
 
 def PrintGameInfo():
-    console_utils.ClearScreen()
+    ConsoleUtils.ClearScreen()
     print(f"游戏名称: {GameName}")
     print(f"游戏版本: {GameVersion}")
     print(f"版本更新信息: {VersionUpdate}")

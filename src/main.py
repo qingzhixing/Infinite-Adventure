@@ -1,9 +1,9 @@
-import console_utils
-from data_read_writer import LoadPlayer, SavePlayer
-from game_pages.starting_area_page import StartingAreaPage
-from global_data import player
-import page_switcher
-import player_info
+import ConsoleUtils
+from DataReadWriter import LoadPlayer, SavePlayer
+from GamePages.StartingAreaPage import StartingAreaPage
+from GlobalData import player
+import PageSwitcher
+import PlayerInfo
 
 
 def InputPlayerInfo():
@@ -29,7 +29,7 @@ def InputPlayerInfo():
 
 def SelectJob():
     print("请选择你的职业:")
-    for index, job in enumerate(player_info.JobList, start=1):
+    for index, job in enumerate(PlayerInfo.JobList, start=1):
         print(f"\n{index}. {job.name} ({job.en_name}) - {job.description}")
         print(f"\t最大生命值: {job.max_health}")
         print(f"\t攻击力: {job.attack_damage}")
@@ -38,8 +38,8 @@ def SelectJob():
     while not job_selected:
         try:
             choice = int(input("请输入对应的数字选择职业: "))
-            if 1 <= choice <= len(player_info.JobList):
-                selected_job = player_info.JobList[choice - 1]
+            if 1 <= choice <= len(PlayerInfo.JobList):
+                selected_job = PlayerInfo.JobList[choice - 1]
                 player.set_job(selected_job)
                 print(f"你已选择职业: {selected_job.name} ({selected_job.en_name})")
                 job_selected = True
@@ -55,30 +55,30 @@ def CreateAccount():
     read_player = LoadPlayer()
     if read_player is None:
         InputPlayerInfo()
-        console_utils.Pause()
-        console_utils.ClearScreen()
+        ConsoleUtils.Pause()
+        ConsoleUtils.ClearScreen()
         SelectJob()
-        console_utils.Pause()
-        console_utils.ClearScreen()
+        ConsoleUtils.Pause()
+        ConsoleUtils.ClearScreen()
         SavePlayer(player)
     else:
         player = read_player
         print("已加载存档，欢迎回来!")
 
-    player_info.PrintPlayerInfo(player)
-    console_utils.Pause()
+    PlayerInfo.PrintPlayerInfo(player)
+    ConsoleUtils.Pause()
 
 
 def GameLoop():
-    while not page_switcher.IsGameOver():
-        page_switcher.NextLoop()
+    while not PageSwitcher.IsGameOver():
+        PageSwitcher.NextLoop()
 
 
 def Initialize():
-    console_utils.ClearScreen()
+    ConsoleUtils.ClearScreen()
     print("欢迎来到 [无尽的冒险: Infinite Adventure]")
     CreateAccount()
-    page_switcher.SwitchTo(StartingAreaPage.NextLoop)
+    PageSwitcher.SwitchTo(StartingAreaPage.NextLoop)
 
 
 def main():
