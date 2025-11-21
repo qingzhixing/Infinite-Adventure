@@ -17,8 +17,8 @@ class StartingAreaPage(BaseGamePage):
             "退出游戏": StartingAreaPage.ExitGameSelection,
         }
         ConsoleUtils.ClearScreen()
-        print("[初始之地: Starting Area]")
-        ConsoleUtils.TypingEffectPrint("这里似乎是你出现在这个世界的位置...")
+        print("[初始之地: Starting Area]\n")
+        ConsoleUtils.TypingEffectPrint("这里似乎是你出现在这个世界的位置...\n")
         print("=" * 60)
         for id, element in enumerate(selections.keys(), start=1):
             print(f"{id}. {element}", end="  " if id % 4 != 0 else "\n")
@@ -28,7 +28,7 @@ class StartingAreaPage(BaseGamePage):
         choice = 0
         while not input_check:
             try:
-                choice = int(input("请输入你的选择: "))
+                choice = int(input("\n请输入你的选择: "))
                 if 1 <= choice <= len(selections):
                     input_check = True
                 else:
@@ -50,6 +50,7 @@ class StartingAreaPage(BaseGamePage):
 
     @staticmethod
     def GameDetailSelection():
+        ConsoleUtils.ClearScreen()
         GameInfo.PrintGameInfo()
         ConsoleUtils.Pause()
 

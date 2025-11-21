@@ -7,8 +7,7 @@ Author = "@qingzhixing"
 
 
 def PrintGameInfo():
-    ConsoleUtils.ClearScreen()
-    print(f"游戏名称: {GameName}")
-    print(f"游戏版本: {GameVersion}")
-    print(f"版本更新信息: {VersionUpdate}")
-    print(f"Made by: {Author}")
+    print(f"游戏名称: {GameName}\n")
+    print(f"游戏版本: {GameVersion}\n")
+    print(f"版本更新信息: {VersionUpdate}\n")
+    ConsoleUtils.TypingEffectPrint(f"Made by: {Author}\n")
