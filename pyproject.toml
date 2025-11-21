@@ -13,8 +13,10 @@ distribution = false
 
 [tool.pdm.scripts]
 start = "python src/main.py"
-release = "pyinstaller --distpath ./dist/dev --onefile --console src/main.py --name Infinite-Adventure"
+build-dev = "pyinstaller --distpath ./dist/dev --console src/main.py --name Infinite-Adventure-Dev"
+build-prod = "pyinstaller --distpath ./dist/prod --onefile --console src/main.py --name Infinite-Adventure"
 clean = "cmd /c 'rmdir /s /q build dist 2>nul && del *.spec 2>nul || echo 清理完成'"
+release = "cmd /c 'pdm clean && pdm build-prod && echo Successfully built the production version at ./dist/prod/'"
 
 [dependency-groups]
 dev = ["pyinstaller>=6.16.0"]

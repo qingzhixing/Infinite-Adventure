@@ -1,20 +1,22 @@
-import ConsoleUtils
-import GameInfo
-import GamePage
-import PageSwitcher
-import PlayerInfo
-from Global import player
+import console_utils
+import game_info
+import base_game_page
+from map_page import MapPage
+import page_switcher
+import player_info
+from global_data import player
 
 
-class MenuPage(GamePage.BaseGamePage):
-    def next_loop(self):
+class MenuPage(base_game_page.BaseGamePage):
+    @staticmethod
+    def NextLoop():
         selections = {
-            "移动": MenuPage.MoveSelection,
+            "打开地图": MenuPage.OpenMapSelection,
             "查看状态": MenuPage.StatusSelection,
             "游戏信息": MenuPage.GameDetailSelection,
             "退出游戏": MenuPage.ExitGameSelection,
         }
-        ConsoleUtils.ClearScreen()
+        console_utils.ClearScreen()
         print("[初始之地: Starting Area]")
         print("这里似乎是你出现在这个世界的位置...")
         print("=" * 60)
@@ -37,23 +39,22 @@ class MenuPage(GamePage.BaseGamePage):
         selections[list(selections.keys())[choice - 1]]()
 
     @staticmethod
-    def MoveSelection():
-        print("移动功能尚未实现。")
-        ConsoleUtils.Pause()
+    def OpenMapSelection():
+        page_switcher.SwitchTo(MapPage.NextLoop)
 
     @staticmethod
     def StatusSelection():
-        ConsoleUtils.ClearScreen()
-        PlayerInfo.PrintPlayerInfo(player)
-        ConsoleUtils.Pause()
+        console_utils.ClearScreen()
+        player_info.PrintPlayerInfo(player)
+        console_utils.Pause()
 
     @staticmethod
     def GameDetailSelection():
-        GameInfo.PrintGameInfo()
-        ConsoleUtils.Pause()
+        game_info.PrintGameInfo()
+        console_utils.Pause()
 
     @staticmethod
     def ExitGameSelection():
         confirm = input("你确定要退出游戏吗？(y/n): ").strip().lower()
         if confirm == "y":
-            PageSwitcher.SetGameOver()
+            page_switcher.SetGameOver()
