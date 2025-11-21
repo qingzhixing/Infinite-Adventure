@@ -1,0 +1,8 @@
+name: infinite-adventure
+channels:
+  - defaults
+  - conda-forge  # 添加conda-forge频道以获取更广泛的软件包
+dependencies:
+  - python=3.13
+  - pip
+  - pyinstaller>=6.16.0
