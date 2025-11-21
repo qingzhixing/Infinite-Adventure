@@ -3,7 +3,7 @@ name = "Infinite-Adventure"
 version = "0.1.0"
 description = "Infinite Adventure. Welcome."
 authors = [{ name = "qingzhixing", email = "qzsqqmail@qq.com" }]
-dependencies = ["windows-curses>=2.4.1"]
+dependencies = []
 requires-python = "==3.13.*"
 readme = "README.md"
 license = { text = "MIT" }
