@@ -48,7 +48,6 @@ def SelectJob():
         except ValueError:
             print("输入无效，请输入数字.")
 
-
 def CreateAccount():
     global player
 
